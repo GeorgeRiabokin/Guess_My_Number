@@ -19,3 +19,34 @@
 🚀 Запуск проєкту
 Просто перейдіть за посиланням:
 https://georgeriabokin.github.io/Guess_My_Number/
+
+📊 Блок-схема гри формату Mermaid:
+flowchart TD
+    A[Start] --> B[Generate secret number (1-20)]
+    B --> C[Set score to 20]
+    C --> D[Check localStorage for highscore]
+    D --> E[User clicks "Check" button]
+    E --> F[Get user guess]
+
+    F --> G{Is guess valid?}
+    G -- No --> H[Display "No number!"]
+    G -- Yes --> I{Is guess == secret number?}
+
+    I -- Yes --> J[Display "Correct number!"]
+    J --> K[Change background and show number]
+    K --> L{score > highscore?}
+    L -- Yes --> M[Update highscore in localStorage]
+    L -- No --> N[Do nothing]
+    M --> O[Wait for "Again"]
+    N --> O
+
+    I -- No --> P{score > 1?}
+    P -- Yes --> Q[Decrease score by 1]
+    Q --> R[Display "Too high!" or "Too low!"]
+    R --> O
+    P -- No --> S[Set score to 0 and display "Game over!"]
+    S --> O
+
+    O --> T[User clicks "Again"]
+    T --> U[Reload page]
+    U --> B
