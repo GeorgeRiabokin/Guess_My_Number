@@ -21,6 +21,7 @@
 https://georgeriabokin.github.io/Guess_My_Number/
 
 📊 Блок-схема гри формату Mermaid:
+```mermaid
 flowchart TD
     A[Start] --> B[Generate secret number (1-20)]
     B --> C[Set score to 20]
@@ -50,3 +51,4 @@ flowchart TD
     O --> T[User clicks "Again"]
     T --> U[Reload page]
     U --> B
+```
